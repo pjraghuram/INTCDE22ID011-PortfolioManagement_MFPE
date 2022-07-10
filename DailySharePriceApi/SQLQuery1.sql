@@ -1,0 +1,1 @@
+﻿INSERT INTO Stocks VALUES ('SBI',466.39);

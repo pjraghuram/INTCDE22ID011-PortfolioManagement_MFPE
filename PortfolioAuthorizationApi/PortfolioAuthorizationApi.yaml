@@ -1,0 +1,33 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: portfolioauthorizationapi-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: PortfolioAuthorizationApi
+  template:
+    metadata:
+      labels:
+        app: PortfolioAuthorizationApi
+    spec:
+      containers:
+      - name: portfolioauthorizationrepos
+        image: myportfoliomanagementcr.azurecr.io/authapi:latest
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: dsconfigsn
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: portfolioauthorizationapi
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: PortfolioAuthorizationApi

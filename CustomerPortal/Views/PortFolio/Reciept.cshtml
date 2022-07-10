@@ -1,0 +1,54 @@
+﻿@model CustomerPortal.Models.AssetSaleResponse
+
+@{
+    ViewData["Title"] = "Reciept";
+}
+<div>
+    <h1 class="rounded text-dark text-center mt-2">Transaction Status</h1>
+</div>
+<div>
+        <a asp-action="Logout" class="btn btn-outline-dark mt-4 mr-4 float-md-right">Logout</a>
+        </div>
+
+<div class="text-white card" style="background-color:black">
+    <div class="container">
+        <dl class="row">
+            <dt class="col-sm-6">
+                @*@Html.DisplayNameFor(model => model.SaleStatus)*@
+                Sale Status
+            </dt>
+            <dd class="col-sm-6">
+
+                @if (Model.SaleStatus == false)
+                {
+
+    <div class=" text-danger h6 mr-5 rounded box-shadow">
+        @Model.SaleStatus,
+        You Don't Have Enough Assets To Sell.
+    </div> }
+else
+{
+    <div class="rounded text-success h6 text-left">
+        @Model.SaleStatus
+    </div>}
+
+                <!--@Html.DisplayFor(model => model.SaleStatus)-->
+            </dd>
+            <dt class="col-sm-6">
+                New Net Worth
+            </dt>
+            <dd class="col-sm-6">
+
+                $@Html.DisplayFor(model => model.Networth)
+            </dd>
+        </dl>
+    </div>
+    
+    <div class="text-center">
+        <a asp-action="Index">Back to List</a>
+    </div>
+</div>
+    
+   
+
+

@@ -1,0 +1,33 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calculatenetworthapi-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: CalculateNetWorthApi
+  template:
+    metadata:
+      labels:
+        app: CalculateNetWorthApi
+    spec:
+      containers:
+      - name: calculatenetworthrepos
+        image: portfoliocr.azurecr.io/networth:latest
+        ports:
+        - containerPort: 8080
+      imagePullSecrets:
+      - name: dsconfigsn
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: calculatenetworthapi
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: CalculateNetWorthApi

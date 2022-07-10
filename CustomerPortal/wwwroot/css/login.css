@@ -1,0 +1,44 @@
+.body {
+    
+}
+.main-head{
+    height: 150px;
+    background: #FFF;  
+}
+a{
+color:#FFF;
+text-decoration-color: #FFF;
+
+}
+
+.sidenav {
+    height: 100%;
+    background-color: #000;
+}
+.login-main-text{
+    margin-top: 40%;
+    padding: 60px;
+    color: #fff;
+}
+.login-main-text h2{
+    font-weight: 300;
+}
+.main{
+    padding: 40px;
+}
+@media screen and (min-width: 768px){
+    .main{
+        margin-left: 40%; 
+    }
+    .sidenav{
+        width: 35%;
+        position: fixed;
+    }
+    .login-form{
+        margin-top: 55%;
+    }
+}
+.btn-black{
+    background-color: #000 !important;
+    color: #fff;
+}
